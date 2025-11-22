@@ -1,0 +1,46 @@
+{{ $data := index .Site.Data.professional_services }}
+{{ range $data }}
+    <table class="full-width">
+        <thead>
+        </thead>
+        <tbody>
+                <tr>
+                    <td class="table-header">
+                        {{ $header := printf "### %s" .category }}
+                        {{ $header| markdownify }} 
+                    </td>
+                </tr>
+                {{ range .rows }}
+                    <tr class="alternate-bg">
+                        <td >
+                            {{ if .url }}
+                                <a href="{{ .url }}">{{ .title }}</a> 
+                            {{ else }}
+                                {{ .title }}
+                            {{ end }}
+                            {{ if .description }}
+                                <br>
+                                <span class="description">{{ .description }}</span>
+                            {{ end }}
+
+                            {{ if .sub_entries }}
+                                <div class="sub_entries">
+                                {{ range .sub_entries }}
+                                    {{ if .url }}
+                                        <a href="{{ .url }}">{{ .title }}</a>
+                                    {{ else }}
+                                        {{ .title }}
+                                    {{ end }}
+                                    {{ if .description }}
+                                        <span class="description">{{ .description }}</span>
+                                    {{ end }}
+                                    <br>
+                                {{ end }}
+                                </div>
+                            {{ end }}
+                        </td>
+                    </tr>
+                {{ end }}
+            {{ end }}
+        </tbody>
+    </table>

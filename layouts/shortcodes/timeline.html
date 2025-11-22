@@ -1,0 +1,45 @@
+<table class="timeline-full-width">
+    <thead>
+    </thead>
+    <tbody>
+        {{ $file := .Get "file" }}
+        {{ $data := index .Site.Data.bio $file }}
+        {{ range $data }}
+        <tr class="alternate-bg">
+            
+            <td class="column-1">
+                {{ if .description }}
+                <br>
+                        <span class="description">{{ .description }}</span>
+                {{ end }}
+
+            </td>
+            <td class="column-2">
+                {{- $linkMap := dict -}}
+                {{- range .links }}
+                {{- $linkMap = merge $linkMap (dict .text .url) -}}
+                {{- end }}
+
+                {{/* Inline linkification for title */}}
+                {{- $linkedTitle := .title -}}
+                {{- range $k, $v := $linkMap }}
+                {{- $linked := printf `<a href="%s">%s</a>` $v $k -}}
+                {{- $linkedTitle = replace $linkedTitle $k $linked 1 -}}  {{/* only once */}}
+                {{- end }}
+
+                <div class="">
+                    <p>{{ $linkedTitle | safeHTML }}</p>
+                </div>
+                
+                {{ if .roles }}
+                <div class="roles">
+                    {{ range .roles }}
+                    <strong><p>{{ . }}</p><strong>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </td>
+        </tr>
+        {{ end }}
+    </tbody>
+  </table>

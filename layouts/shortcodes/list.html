@@ -1,0 +1,23 @@
+<table>
+    <thead>
+    </thead>
+    <tbody>
+        {{ $file := .Get "file" }}
+        {{ $data := index .Site.Data.bio $file }}
+        {{ range $data }}
+        <tr>
+            <td>
+                {{ if .url }}
+                    <a href="{{ .url }}">{{ .title }}</a>
+                {{ else }}
+                    {{ .title }}
+                {{ end }}
+                {{ if .description }}
+                    <br>
+                    <span class="description">{{ .description }}</span>
+                {{ end }}
+            </td>
+        </tr>
+        {{ end }}
+    </tbody>
+  </table>
