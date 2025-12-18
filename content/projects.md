@@ -1,8 +1,0 @@
----
-title: "Projects"
----
-
-### Current projects
-
-
-### Previous projects

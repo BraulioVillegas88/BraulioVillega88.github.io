@@ -14,10 +14,11 @@
         {{ range $data }}
         <tr>
             <td>
-                {{ if .url }}
-                    <a href="{{ .url }}">{{ .title }}</a>
-                {{ else }}
+                {{ if .title }}
                     {{ .title }}
+                {{ end }}
+                {{ if .url }}
+                    <a href="{{ .url }}">{{ .url }}</a>
                 {{ end }}
                 {{ if .description }}
                     <br>

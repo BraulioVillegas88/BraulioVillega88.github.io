@@ -1,12 +1,8 @@
-{{ $data := index .Site.Data.publications }}
+{{ $file := .Get "file" }}
+{{ $data := index .Site.Data.publications $file }}
 {{ $counter := 0 }}
 {{ range $data }}
-    {{ $tag := index $.Page.Params.tags 0 }}
-    {{ range .publications }}
-    {{ if or (eq $tag "all") (in .tags $tag) }}
         {{ $counter = add $counter 1 }}
-    {{ end }}
-    {{ end }}
 {{ end }}
 
 {{ range $data }}
@@ -14,41 +10,17 @@
     <thead>
     </thead>
     <tbody>
-        <tr>
-            {{ $tag := index $.Page.Params.tags 0 }}
-
-            {{ $.Scratch.Set "empty" true }}
-
-            {{ range .publications }}
-              {{ if or (eq $tag "all") (in .tags $tag) }}
-                {{ $.Scratch.Set "empty" false }}
-              {{ end }}
-            {{ end }}
-
-            {{$empty := $.Scratch.Get "empty" }}
-                {{ if and (or (eq $tag "all") (eq $tag "journal") (eq $tag "conference")) (not $empty) }}
-                    <td>
-                        {{ $header := printf "### %v" .year }}
-                        {{ $header| markdownify }} 
-                    </td> 
-                {{end}}
-            </tr>
-            {{ range .publications }}
-                {{ $tag := index $.Page.Params.tags 0 }}
-                {{ if or (eq $tag "all") (in .tags $tag) }}
                     <tr>
                         <td>{{ $counter}}</td>
             {{$counter = add $counter -1 }}
                         <td>
                             {{ .authors }}
                             <br>
-                            <a href = "{{ .url}}"> {{ .link }} </a>
+                            <a href = "{{ .url}}"> {{ .url }} </a>
                             <br>
                             {{ .title}}
                         </td>
                     </tr>
-                {{ end}}
-            {{ end }}
         {{ end }}
     </tbody>
   </table>

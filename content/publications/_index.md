@@ -1,5 +1,8 @@
 ---
 title: "Publications"
-tags: ["all"]
+_build:
+    list: never
 ---
+
+{{<publications file="index">}}
 

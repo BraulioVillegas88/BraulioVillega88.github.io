@@ -2,7 +2,4 @@
 title: "Awards"
 ---
 
-
-### Awards
-### Current funding
-### Previous funding
+{{<timeline file="awards-projects">}}

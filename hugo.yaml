@@ -1,0 +1,94 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Braulio Misael Villegas Martinez
+
+theme: ["PaperMod"]
+
+menu:
+  main:
+    - name: "Home"
+      pageRef: "/"
+      weight: 1
+
+    - name: "Professional Activities"
+      pageRef: "/professional-activities/"
+      weight: 2
+
+    - name: "Awards"
+      pageRef: "/awards/"
+      weight: 3
+
+    - name: "Publications"
+      identifier: "publications"
+      pageRef: "/publications/"
+      weight: 4
+
+    - name: "Lectures and Talks"
+      pageRef: "/lectures-and-talks/"
+      weight: 5
+
+    - name: "Academic Services"
+      pageRef: "/academic-services/"
+      weight: 6
+
+    - name: "Bio"
+      pageRef: "/bio/"
+      weight: 7
+
+    - name: "In the Press"
+      pageRef: "/in-the-press/"
+      weight: 8
+
+    - name: "Contact"
+      pageRef: "/contact/"
+      weight: 9
+
+    - name: "Journal"
+      pageRef: "/publications/journals"
+      parent: "publications"
+      weight: 10
+
+    - name: "Conference"
+      pageRef: "/publications/peer-reviewed-conferences"
+      parent: "publications"
+      weight: 20
+
+    - name: "White Paper"
+      pageRef: "/publications/white-papers"
+      parent: "publications"
+      weight: 30
+
+    - name: "Book"
+      pageRef: "/publications/book-chapters"
+      parent: "publications"
+      weight: 40
+
+    - name: "Edited"
+      pageRef: "/publications/edited-proceedings"
+      parent: "publications"
+      weight: 50
+
+    - name: "Special"
+      pageRef: "/publications/special-issues"
+      parent: "publications"
+      weight: 60
+
+    - name: "In-Preparation"
+      pageRef: "/publications/special-issues"
+      parent: "publications"
+      weight: 70
+
+    - name: "Education-Tool"
+      pageRef: "/publications/education-tool"
+      parent: "publications"
+      weight: 80
+
+    - name: "Misc"
+      pageRef: "/publications/misc"
+      parent: "publications"
+      weight: 90
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
