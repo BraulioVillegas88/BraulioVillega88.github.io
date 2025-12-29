@@ -1,6 +1,4 @@
 ---
-title: "Home"
+title: "Braulio Misael Villegas Martinez"
+layout: single
 ---
-
-# Braulio Misael Villegas Martín
-
